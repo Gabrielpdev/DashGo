@@ -1,4 +1,4 @@
-import { Box, Text, Flex, Heading, Button, Icon, Table, Thead, Tr, Th,Checkbox, Tbody, Td } from "@chakra-ui/react";
+import { Box, Text, Flex, Heading, Button, Icon, Table, Thead, Tr, Th,Checkbox, Tbody, Td, useBreakpointValue } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
@@ -6,6 +6,11 @@ import { Pagination } from "../../components/Pagination";
 import { SideBar } from "../../components/Sidebar";
 
 export default function UserList(){
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Box>
 
@@ -43,33 +48,40 @@ export default function UserList(){
                 <Th>
                   Usuário
                 </Th>
-                <Th>
-                  Data de cadastro
-                </Th>
-                <Th w="8">
-                </Th>
+                {isWideVersion && (
+                  <Th>
+                    Data de cadastro
+                  </Th>
+                )}
+                {isWideVersion && (
+                  <Th w="8">
+                  </Th>
+                )}
               </Tr>
             </Thead>
 
             <Tbody>
               <Tr>
-                <Td px="6">
+                <Td px={["4","4","6"]}>
                   <Checkbox colorScheme="pink" />
                 </Td>
-                <Td px="6">
+                <Td px={["4","4","6"]}>
                   <Box>
                     <Text fontWeight="bold" >Gabriel Pereira</Text>
                     <Text fontSize="sm" color="gray.300">gabriel9938@gmail.com</Text>
                   </Box>
                 </Td>
-                <Td>
-                  04 de Abril, 2021
-                </Td>
-                <Td>
-                  <Button as="a" size="sm" fontSize="sm" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16"/>} >
-                    Editar
-                  </Button>
-                </Td>
+                {isWideVersion && (
+                  <Td>
+                    04 de Abril, 2021
+                  </Td>
+                )}
+                {isWideVersion && (
+                  <Td>
+                    <Button as="a" size="sm" fontSize="sm" colorScheme="purple" leftIcon={<Icon as={RiPencilLine} fontSize="16"/>} >
+                    </Button>
+                  </Td>
+                )}
               </Tr>
             </Tbody>
           </Table>
