@@ -13,7 +13,7 @@ export function NavSection({title, children}: NavSectionProps){
       <Text
         fontWeight="bold"
         color="gray.400" 
-        fonSize="small"
+        fontSize="small"
       >
         {title}
       </Text>

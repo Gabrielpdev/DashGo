@@ -12,7 +12,7 @@ export function PaginationItem({children, isCurrent = false}: PaginationItemProp
         size="sm"
         fontSize="xs"
         width="4"
-        colorSchema="pink"
+        colorschema="pink"
         disabled
         _disabled={{
           bg: 'pink.500',
